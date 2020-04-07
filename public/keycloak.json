@@ -1,0 +1,8 @@
+{
+  "realm": "reactus",
+  "auth-server-url": "https://idp-dev.iaaucarre.net/auth/",
+  "ssl-required": "none",
+  "resource": "reactus-frontend",
+  "public-client": true,
+  "confidential-port": 0
+}

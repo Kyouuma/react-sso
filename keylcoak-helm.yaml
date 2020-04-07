@@ -1,0 +1,31 @@
+keycloak:
+  replicas: 1
+
+  image:
+    repository: jboss/keycloak
+    tag: 9.0.2
+    pullPolicy: IfNotPresent
+
+  ## The path keycloak will be served from. To serve keycloak from the root path, use two quotes (e.g. "").
+  basepath: auth
+
+  ## Username for the initial Keycloak admin user
+  username: keycloak
+
+  ## Password for the initial Keycloak admin user. Applicable only if existingSecret is not set.
+  ## If not set, a random 10 characters password will be used
+  password: "keycloak"
+
+  ingress:
+    enabled: true
+    path: /
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubernetes.io/ingress.class: nginx
+      ingress.kubernetes.io/affinity: cookie
+    hosts:
+      - idp-dev.iaaucarre.net
+    tls:
+      - hosts:
+          - idp-dev.iaaucarre.net
+        secretName: idp-dev.iaaucarre.net
