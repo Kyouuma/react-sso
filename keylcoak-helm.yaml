@@ -24,8 +24,8 @@ keycloak:
       kubernetes.io/ingress.class: nginx
       ingress.kubernetes.io/affinity: cookie
     hosts:
-      - idp-dev.iaaucarre.net
+      - 
     tls:
       - hosts:
-          - idp-dev.iaaucarre.net
-        secretName: idp-dev.iaaucarre.net
+          - <HOST>
+        secretName: keycloak-tls
